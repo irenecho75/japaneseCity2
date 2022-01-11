@@ -22,7 +22,7 @@ public class TakeScreenshot : Screenshoter
         counter = 0;
         filename = OL_GLOBAL_INFO.SCREENSHOT_FILENAME;
         //path = Application.dataPath + "/../ol_output/";
-        path = "D:/4Eyes/ol_output/";
+        path = "/media/scratch/ersp21/outputs/";
         Directory.CreateDirectory(path); //creates directory
         path = path + date + "/";
         Directory.CreateDirectory(path);
