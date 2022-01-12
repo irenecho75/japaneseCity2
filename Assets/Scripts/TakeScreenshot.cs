@@ -22,7 +22,8 @@ public class TakeScreenshot : Screenshoter
         counter = 0;
         filename = OL_GLOBAL_INFO.SCREENSHOT_FILENAME;
         //path = Application.dataPath + "/../ol_output/";
-        path = "/media/scratch/ersp21/outputs/";
+        // bz - I changed this to my output
+        path = "E:/ERSP/Outputs/";
         Directory.CreateDirectory(path); //creates directory
         path = path + date + "/";
         Directory.CreateDirectory(path);
@@ -64,8 +65,14 @@ public class TakeScreenshot : Screenshoter
         // Must use 24-bit depth buffer to be able to fill background.
         RenderTexture render_texture;
         var grab_area = new Rect(0, 0, width, height);
-        cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.backgroundColor = Color.black;
+
+
+
+        cam.clearFlags = CameraClearFlags.Skybox;
+        // Color test = new Color32(169, 213, 246, 255);
+        // cam.backgroundColor = test;
+
+
         // Simple: use a clear background
         //cam.backgroundColor = Color.clear;
         //cam.Render();
