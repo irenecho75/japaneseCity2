@@ -23,7 +23,7 @@ public class TakeScreenshot : Screenshoter
         filename = OL_GLOBAL_INFO.SCREENSHOT_FILENAME;
         //path = Application.dataPath + "/../ol_output/";
         // bz - I changed this to my output
-        path = "E:/ERSP/Outputs/";
+        path = "/Users/irenecho/ersp21/";
         Directory.CreateDirectory(path); //creates directory
         path = path + date + "/";
         Directory.CreateDirectory(path);

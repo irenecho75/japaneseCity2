@@ -21,13 +21,14 @@ public class ExistingSceneLoader : Loader
                 bounds.Encapsulate(renderer.bounds);
             }
         }
-        GameObject nmh = new GameObject("NavMesh Holder");
+        /*GameObject nmh = new GameObject("NavMesh Holder");
         navMeshSurface = nmh.AddComponent<NavMeshSurface>();
         navMeshSurface.layerMask = LayerMask.GetMask("NavMeshLayer");
         agentSettings = NavMesh.CreateSettings();
         agentSettings.agentHeight = 1.5f;
         agentSettings.agentRadius = 0.1f;
         //navMeshSurface.BuildNavMeshWithSettings(agentSettings);
+        */
         navAgent = OL_GLOBAL_INFO.AGENT;
         navAgent.GetComponent<NavMeshAgent>().agentTypeID = agentSettings.agentTypeID;
         navAgent.GetComponent<NavMeshAgent>().angularSpeed = 80.0f;

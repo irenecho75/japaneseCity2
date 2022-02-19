@@ -204,21 +204,32 @@ public class SimpleAgent : Agent
             for (int i = 0; i < pointsPerLevel; i += 0)
             {
                 float rx = UnityEngine.Random.Range(bboxlist[l].Item1.x, bboxlist[l].Item2.x);
-                float ry = UnityEngine.Random.Range(bboxlist[l].Item1.y, bboxlist[l].Item2.y);
+                //Debug.Log(bboxlist[l].Item1.x); // -43.72499
+                //Debug.Log(bboxlist[l].Item2.x); // 116.9021
+                //Debug.Log(bboxlist[l].Item1.y); // -1.9
+                //Debug.Log(bboxlist[l].Item2.y); // 21.225, way too high
+                //float ry = UnityEngine.Random.Range(bboxlist[l].Item1.y, bboxlist[l].Item2.y);
+                //Debug.Log(bboxlist[l].Item1.z); // 8.881332
+                //Debug.Log(bboxlist[l].Item2.z); // 93.19138
+                float ry = 1f;
                 float rz = UnityEngine.Random.Range(bboxlist[l].Item1.z, bboxlist[l].Item2.z);
                 Vector3 randomPoint = new Vector3(rx, ry, rz);
                 NavMeshHit hit;
                 Vector3 result = new Vector3(0, 0, 0); //All this code is doing is finding a random point within the bounding box of the level we are looking at,
                                                        //and then finding the closest point on the NavMesh.
+                                                       // if we can find a point on the navmesh close to the random point we generate
                 if (NavMesh.SamplePosition(randomPoint, out hit, Vector3.Distance(bboxlist[l].Item1, bboxlist[l].Item2), NavMesh.AllAreas))
                 {
                     result = hit.position;
                     randomPoints.Add(result);
                     i++;
+                    
                 }
                 else
                 {
-                    //Point Not Found
+                    //i++;
+                    Debug.Log("Coordinates out of range: " + rx + ", " + ry + ", " + rz + "\n");
+                    //Point Not Found, always entering this for loop
                 }
 
             }

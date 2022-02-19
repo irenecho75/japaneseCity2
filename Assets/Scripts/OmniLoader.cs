@@ -94,6 +94,7 @@ public class OmniLoader : MonoBehaviour
         if (AgentScript != null)
         {
             sceneAgent = (Agent)agentObj.GetComponent(AgentScript.GetClass());
+            //OL_GLOBAL_INFO.BBOX_LIST 
             sceneAgent.StartAgent(OL_GLOBAL_INFO.BBOX_LIST);
         }
 
